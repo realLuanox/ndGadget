@@ -1,0 +1,15 @@
+<mat-toolbar class="toolbar">
+  <button mat-icon-button class="example-icon" style="z-index: 2;" aria-label="Example icon-button with menu icon" (click)="showSidebar.emit(null)">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <a routerLink="/">
+    <span>{{ title }}</span>
+  </a>
+  <span class="example-spacer"></span>
+  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" (click)="favorite.emit(null)">
+    <mat-icon>favorite</mat-icon>
+  </button>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" (click)="share.emit('hello')">
+    <mat-icon>share</mat-icon>
+  </button>
+</mat-toolbar>
