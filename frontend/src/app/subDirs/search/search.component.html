@@ -1,0 +1,18 @@
+<mat-tab-group [(selectedIndex)]="tabIndex">
+  <mat-tab label="이름으로 검색">
+    <app-searchbar (searched)="search($event)"></app-searchbar>
+    <app-alcohol-small *ngFor="let alcohol of alcohols" [alcohol]="alcohol">
+    </app-alcohol-small>
+  </mat-tab>
+  <mat-tab label="카테고리로 검색">
+    <app-alcohol-small *ngFor="let alcohol of alcohols" [alcohol]="alcohol">
+    </app-alcohol-small>
+  </mat-tab>
+
+  <mat-tab label=" 검색"> Content 3</mat-tab>
+
+  <div class="row">
+    <div class="col-12">
+    </div>
+  </div>
+</mat-tab-group>
