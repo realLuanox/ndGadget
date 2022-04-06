@@ -1,0 +1,266 @@
+[
+  {
+    "age": "N/A",
+    "amount": 700,
+    "degree": 45,
+    "englishName": "Monkey Sholder",
+    "name": "몽키 숄더",
+    "category": [
+        "위스키",
+        "블렌디드 몰트"
+      ],
+    "image": "https://www.saq.com/media/catalog/product/1/3/13682282-1_1634743917.png?quality=80&fit=bounds&height=&width=",
+    "storePrices": [
+      {
+        "storeName": "석진상회",
+        "buyDate": "20170710",
+        "price": "48000"
+      },
+      {
+        "storeName": "안성상회",
+        "buyDate": "20180420",
+        "price": "50000"
+      },
+      {
+        "storeName": "형제상회",
+        "buyDate": "20170410",
+        "price": "53000"
+      },
+      {
+        "storeName": "골드컴퍼니",
+        "buyDate": "20170605",
+        "price": "45000"
+      },
+      {
+        "storeName": "와인앤모어",
+        "buyDate": "석진상회",
+        "price": "50000"
+      }
+    ],
+    "description": "위스키 제조과정에서 싹틔운 몰트를 건조시키는데, 현대화된 위스키 증류소에서는 보리가 골고루 마를 수 있도록 기계를 사용해서 뒤집어 준다. 하지만 발베니 등의 일부 증류소에서는 기계를 사용하지 않고 인부가 직접 몰트 건조장에 들어가 맥아를 뒤집는 과정을 고집한다. 이 과정에서 몰트를 삽으로 뒤집는 사람을 몰트맨이라고 부른다. 몰트맨이 오랜 기간 동안 삽으로 몰트를 뒤집는 과정에서, 어깨가 아래쪽으로 쳐지고 휘어지는 직업병을 얻게 되는데 이 모습이 원숭이의 어깨와 닮았다고 하여 몽키 숄더라고 부르는 것. 절대로 조롱하는 것이 아니라, 오랜 기간 동안 몰트를 적절하게 고루 뒤집는 작업에 매진한 장인들의 노고를 기리는 이름이다.\n\n윌리엄그랜트앤선즈社가 소유하고 있는 키닌뷰, 발베니, 글렌피딕의 원액을 블렌딩하여 제조했기 때문에 달달한 맛과 향을 가진 녀석으로 매우 마시기 쉬운 것이 특징이다. 특히 코끝에 감겨오는 바닐라향이 매력적이다. 병목의 BATCH 27은 혼합하는 캐스크가 27개라는 의미라는 설과, 개발과정 중 27번째 캐스크의 조합이 가장 훌륭하여 마스터 디스틸러가 표준 레시피로 채택한 것을 표기하였다는 설이 있다. 2020년 현재 대형마트 기준 4~5만원대에 구입할 수 있는 가성비 좋은 위스키 중 하나이다."
+  },
+  {
+    "age": 12,
+    "amount": 700,
+    "degree": 45,
+    "englishName": "Macallan 12",
+    "name": "맥캘란 12년",
+    "category": [
+      "위스키",
+      "상글 몰트"
+    ],
+    "image": "https://static.whiskybase.com/storage/whiskies/1/1/3049/187234-big.jpg",
+    "storePrices": [
+      {
+        "storeName": "석진상회",
+        "amount": 700,
+        "buyDate": "20170710",
+        "price": "48000"
+      },
+      {
+        "storeName": "안성상회",
+        "amount": 700,
+        "buyDate": "20180420",
+        "price": "50000"
+      },
+      {
+        "storeName": "형제상회",
+        "amount": 700,
+        "buyDate": "20170410",
+        "price": "53000"
+      },
+      {
+        "storeName": "골드컴퍼니",
+        "amount": 700,
+        "buyDate": "20170605",
+        "price": "45000"
+      },
+      {
+        "storeName": "와인앤모어",
+        "amount": 700,
+        "buyDate": "20170605",
+        "price": "50000"
+      }
+    ],
+    "description": "글렌피딕, 더 글렌리벳, 글렌모렌지와 함께 세계적인 인지도를 가지고 있는 싱글 몰트 중 하나이며, 지역적인 분류로는 스페이사이드이다. 특히 고급 & 고가 위스키의 대명사격이며, 위스키계의 롤스로이스라는 별명으로 불리기도 한다."
+  },
+
+  {
+    "age": 15,
+    "degree": 45,
+    "amount": 700,
+    "englishName": "Glenfiddich 12",
+    "name": "글랜피딕 12년",
+    "image": "https://img.thewhiskyexchange.com/900/gfdob.12yo.jpg",
+    "category": [
+      "위스키",
+      "싱글 몰트"
+    ],
+    "storePrices": [
+      {
+        "storeName": "석진상회",
+        "amount": 700,
+        "buyDate": "20170710",
+        "price": "48000"
+      },
+      {
+        "storeName": "안성상회",
+        "amount": 700,
+        "buyDate": "20180420",
+        "price": "50000"
+      },
+      {
+        "storeName": "형제상회",
+        "amount": 700,
+        "buyDate": "20170410",
+        "price": "53000"
+      },
+      {
+        "storeName": "골드컴퍼니",
+        "amount": 700,
+        "buyDate": "20170605",
+        "price": "45000"
+      },
+      {
+        "storeName": "와인앤모어",
+        "amount": 700,
+        "buyDate": "20170605",
+        "price": "50000"
+      }
+    ],
+    "description": "글렌피딕의 제품군중 위스키 전문가들이 가장 선호하는 위스키. 꿀과 바닐라 같은 복잡하고 깊은 향이 특징이다. 그런것 치곤 유럽기준 30€ 정도로 굉장히 저렴한 편이다."
+  },
+  {
+    "age": 15,
+    "degree": 45,
+    "amount": 700,
+    "englishName": "Glenfiddich 15",
+    "name": "글랜피딕 15년",
+    "image": "https://img.thewhiskyexchange.com/900/gfdob.15yo.jpg",
+    "category": [
+      "위스키",
+      "싱글 몰트"
+    ],
+    "storePrices": [
+      {
+        "storeName": "석진상회",
+        "amount": 700,
+        "buyDate": "20170710",
+        "price": "48000"
+      },
+      {
+        "storeName": "안성상회",
+        "amount": 700,
+        "buyDate": "20180420",
+        "price": "50000"
+      },
+      {
+        "storeName": "형제상회",
+        "amount": 700,
+        "buyDate": "20170410",
+        "price": "53000"
+      },
+      {
+        "storeName": "골드컴퍼니",
+        "amount": 700,
+        "buyDate": "20170605",
+        "price": "45000"
+      },
+      {
+        "storeName": "와인앤모어",
+        "amount": 700,
+        "buyDate": "20170605",
+        "price": "50000"
+      }
+    ],
+    "description": "글렌피딕의 제품군중 위스키 전문가들이 가장 선호하는 위스키. 꿀과 바닐라 같은 복잡하고 깊은 향이 특징이다. 그런것 치곤 유럽기준 30€ 정도로 굉장히 저렴한 편이다."
+  },
+  {
+    "amount": 700,
+    "degree": 20,
+    "englishName": "Bols blue curaso",
+    "name": "볼스 블루 큐라소",
+    "category": [
+      "리큐르",
+      "블루 큐라소"
+    ],
+    "image": "https://cdn.diffords.com/contrib/bws/2017/10/59db852256d58.jpg",
+    "storePrices": [
+      {
+        "storeName": "석진상회",
+        "buyDate": "2017/07/10",
+        "price": "48000",
+        "amount": 700
+      },
+      {
+        "storeName": "안성상회",
+        "buyDate": "2018/04/20",
+        "price": "50000",
+        "amount": 700
+      },
+      {
+        "storeName": "형제상회",
+        "buyDate": "2017/04/10",
+        "price": "53000",
+        "amount": 700
+      },
+      {
+        "storeName": "골드컴퍼니",
+        "buyDate": "2017/06/05",
+        "price": "45000",
+        "amount": 700
+      },
+      {
+        "storeName": "와인앤모어",
+        "buyDate": "2017/08/10",
+        "price": "50000",
+        "amount": 700
+      }
+    ],
+    "description": "퀴라소 리큐어(네델란드어: Curaçao, 다른 말로 쿠라사오, 착색료를 넣어 파란색을 내기 때문에 많은 사람들이 흔히 블루 퀴라소라고 함.)는 라라하 귤 열매의 껍질을 말려 그것을 가지고 향을 낸 리큐어 를 말한다.주정에 오렌지 껍질과 기타 재료 등을 넣어 몇 차례 증류를 통해 만들어지는(발효 등을 거치지 않은) 인공적인 술이라 할 수 있다.\n\n그렇기에 여러 첨가물이 들어가는 리큐르인데, 이 블루 큐라소는 그중에서 식용 색소로 색을 낸 타입이다. 사실 이 블루 큐라소 외에도 붉은색, 녹색, 노란색 등의 여러 큐라소가 있으나,칵테일에서 가장 많이 쓰이는 것은 단연 이 블루 큐라소이다.\n\n맛은 회사마다 다소 차이가 있지만 오렌지 향 풍기는 달콤한 맛에 약간 씁쓸한 듯한 느낌으로 이 블루 큐라소는 상대적으로 도수가 낮은 편이다"
+  },
+  {
+    "amount": 700,
+    "degree": 20,
+    "englishName": "St. germain",
+    "name": "생 제르망",
+    "category": [
+      "리큐르",
+      "엘더플라워"
+    ],
+    "image": "https://www.saq.com/media/catalog/product/1/1/11918925-1_1580629514.png?width=367&height=550&canvas=367:550&quality=80&fit=bounds",
+    "storePrices": [
+      {
+        "storeName": "석진상회",
+        "buyDate": "2017/07/10",
+        "price": "48000",
+        "amount": 700
+      },
+      {
+        "storeName": "안성상회",
+        "buyDate": "2018/04/20",
+        "price": "50000",
+        "amount": 700
+      },
+      {
+        "storeName": "형제상회",
+        "buyDate": "2017/04/10",
+        "price": "53000",
+        "amount": 700
+      },
+      {
+        "storeName": "골드컴퍼니",
+        "buyDate": "2017/06/05",
+        "price": "45000",
+        "amount": 700
+      },
+      {
+        "storeName": "와인앤모어",
+        "buyDate": "2017/08/10",
+        "price": "50000",
+        "amount": 700
+      }
+    ],
+    "description": "1병에 1,000개의 엘더플라워 꽃이 담긴 리큐르를 들어보셨나요? ‘생 제르맹’은 2007년 프랑스에서 탄생한 세계 최초의 엘더플라워 리큐르입니다. 엘더플라워는 과일 못지않은 맛 덕분에 하늘에서 내려온 선물이라고도 불리는데요. 늦은 봄, 야생에서 직접 손으로 채취한 꽃의 향과 색을 추출하여 만든 게 생 제르맹입니다. 그리고 보틀에는 엘더플라워를 수확한 연도가 넘버링이 돼 있어 그 가치와 특별함을 더하고 있습니다."
+  }
+]
