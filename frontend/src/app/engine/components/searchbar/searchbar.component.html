@@ -1,0 +1,14 @@
+<mat-form-field class="w-100" appearance="standard">
+  <mat-label>주류</mat-label>
+  <input type="text"
+         placeholder="이름을 입력해주세요"
+         aria-label="주류명"
+         matInput
+         [formControl]="myControl"
+         [matAutocomplete]="auto">
+  <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="search($event.option.value)">
+    <mat-option *ngFor="let option of filteredOptions | async" [value]="option.englishName">
+      {{option.name}}
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>
