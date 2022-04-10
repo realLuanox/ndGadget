@@ -1,0 +1,74 @@
+<mat-card class="mt-4">
+  <mat-stepper class="col-12" orientation="vertical" [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="firstFormGroup" label="db에 존재하지 않는 주류 추가">
+      <form class="row" [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>이름 정보 입력</ng-template>
+        <mat-form-field class="col-6" appearance="standard">
+          <mat-label>이름</mat-label>
+          <input matInput [formControl]="nameControl" [matAutocomplete]="alcoholName" placeholder="ex) 글랜피딕 12년">
+          <mat-autocomplete autoActiveFirstOption #alcoholName="matAutocomplete">
+            <mat-option *ngFor="let option of nameFilter | async" [value]="option">
+              {{option}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+        <mat-form-field class="col-6" appearance="standard">
+          <mat-label>영문 이름</mat-label>
+          <input matInput [formControl]="englishNameControl" placeholder="ex) Glenfiddich 12y">
+        </mat-form-field>
+        <div>
+          <button color="primary" (click)="onUpdateFirstGroup($event)" mat-button matStepperNext>다음</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+      <form class="row" [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>추가 정보 입력</ng-template>
+        <mat-form-field [ngClass]="categoryControl.value =='위스키' ? 'col-9' : 'col-12'" appearance="standard">
+          <mat-label>카테고리</mat-label>
+          <mat-select [formControl]="categoryControl" required>
+            <mat-option *ngFor="let option of alcoholCategory" [value]="option">
+              {{option}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field *ngIf="categoryControl.value == '위스키'" class="col-3" appearance="standard">
+          <mat-label>숙성 기간</mat-label>
+          <input matInput type="number" [formControl]="ageControl">
+        </mat-form-field>
+        <mat-form-field class="col-6" appearance="standard">
+          <mat-label>카테고리 2</mat-label>
+          <input matInput [formControl]="detailedCategoryControl">
+        </mat-form-field>
+        <mat-form-field class="col-6" appearance="standard">
+          <mat-label>도수</mat-label>
+          <input matInput type="number" [formControl]="degreeControl" placeholder="40" required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>이전</button>
+          <button color="primary" (click)="onUpdateSecondGroup($event)" mat-button matStepperNext>다음</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <form class="row">
+        <ng-template matStepLabel>기타</ng-template>
+        <mat-form-field class="col-12" appearance="standard">
+          <mat-label>사진</mat-label>
+          <input matInput [formControl]="imageUrlControl" [(ngModel)]="this.output.imageUrl">
+        </mat-form-field>
+        <mat-form-field class="col-12" appearance="standard">
+          <mat-label>설명</mat-label>
+          <textarea matInput [formControl]="descriptionControl" [(ngModel)]="this.output.description"></textarea>
+        </mat-form-field>
+        <p>기타</p>
+        <div>
+          <button mat-button matStepperPrevious>이전</button>
+          <button mat-button (click)="stepper.reset()">등록하기</button>
+        </div>
+      </form>
+    </mat-step>
+  </mat-stepper>
+  <app-alcohol-small [alcohol]="output">
+  </app-alcohol-small>
+</mat-card>
