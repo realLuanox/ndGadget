@@ -3,13 +3,14 @@
     "age": "N/A",
     "amount": 700,
     "degree": 45,
+    "uuid": "a14d7752-b90e-11ec-8422-0242ac120002",
     "englishName": "Monkey Sholder",
     "name": "몽키 숄더",
     "category": [
         "위스키",
         "블렌디드 몰트"
       ],
-    "image": "https://www.saq.com/media/catalog/product/1/3/13682282-1_1634743917.png?quality=80&fit=bounds&height=&width=",
+    "imageUrl": "https://www.saq.com/media/catalog/product/1/3/13682282-1_1634743917.png?quality=80&fit=bounds&height=&width=",
     "storePrices": [
       {
         "storeName": "석진상회",
@@ -43,13 +44,14 @@
     "age": 12,
     "amount": 700,
     "degree": 45,
+    "uuid": "bafb805e-b90e-11ec-8422-0242ac120002",
     "englishName": "Macallan 12",
     "name": "맥캘란 12년",
     "category": [
       "위스키",
       "상글 몰트"
     ],
-    "image": "https://static.whiskybase.com/storage/whiskies/1/1/3049/187234-big.jpg",
+    "imageUrl": "https://static.whiskybase.com/storage/whiskies/1/1/3049/187234-big.jpg",
     "storePrices": [
       {
         "storeName": "석진상회",
@@ -88,10 +90,11 @@
   {
     "age": 15,
     "degree": 45,
+    "uuid": "bafb8284-b90e-11ec-8422-0242ac120002",
     "amount": 700,
     "englishName": "Glenfiddich 12",
     "name": "글랜피딕 12년",
-    "image": "https://img.thewhiskyexchange.com/900/gfdob.12yo.jpg",
+    "imageUrl": "https://img.thewhiskyexchange.com/900/gfdob.12yo.jpg",
     "category": [
       "위스키",
       "싱글 몰트"
@@ -136,7 +139,7 @@
     "amount": 700,
     "englishName": "Glenfiddich 15",
     "name": "글랜피딕 15년",
-    "image": "https://img.thewhiskyexchange.com/900/gfdob.15yo.jpg",
+    "imageUrl": "https://img.thewhiskyexchange.com/900/gfdob.15yo.jpg",
     "category": [
       "위스키",
       "싱글 몰트"
@@ -178,13 +181,14 @@
   {
     "amount": 700,
     "degree": 20,
+    "uuid": "bafb8284-b90e-11ec-8422-0242ac120002",
     "englishName": "Bols blue curaso",
     "name": "볼스 블루 큐라소",
     "category": [
       "리큐르",
       "블루 큐라소"
     ],
-    "image": "https://cdn.diffords.com/contrib/bws/2017/10/59db852256d58.jpg",
+    "imageUrl": "https://cdn.diffords.com/contrib/bws/2017/10/59db852256d58.jpg",
     "storePrices": [
       {
         "storeName": "석진상회",
@@ -222,13 +226,14 @@
   {
     "amount": 700,
     "degree": 20,
+    "uuid": "d240f0aa-b90e-11ec-8422-0242ac120002",
     "englishName": "St. germain",
     "name": "생 제르망",
     "category": [
       "리큐르",
       "엘더플라워"
     ],
-    "image": "https://www.saq.com/media/catalog/product/1/1/11918925-1_1580629514.png?width=367&height=550&canvas=367:550&quality=80&fit=bounds",
+    "imageUrl": "https://www.saq.com/media/catalog/product/1/1/11918925-1_1580629514.png?width=367&height=550&canvas=367:550&quality=80&fit=bounds",
     "storePrices": [
       {
         "storeName": "석진상회",
