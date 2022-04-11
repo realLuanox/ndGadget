@@ -1,0 +1,49 @@
+<mat-card>
+  <mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form class="row" [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>이름 정보 입력</ng-template>
+          <app-searchbar class="col-6" (searched)="search($event)"></app-searchbar>
+          <mat-form-field class="col-6" appearance="standard">
+            <mat-label>구매처 이름</mat-label>
+            <input matInput placeholder="구매처 이름" formControlName="firstCtrl" required>
+          </mat-form-field>
+          <app-alcohol-small [alcohol]="alcohol[0]">
+          </app-alcohol-small>
+        <div>
+          <button mat-button matStepperNext>다음</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+      <form class="row" [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>가격 정보 입력</ng-template>
+          <mat-form-field class="col-6" appearance="standard">
+            <mat-label>가격</mat-label>
+            <input matInput formControlName="secondCtrl" placeholder="ex) 65000"
+                   required>
+          </mat-form-field>
+          <mat-form-field class="col-6" appearance="standard">
+            <mat-label>용량</mat-label>
+            <input matInput placeholder="ex) 700ml" formControlName="firstCtrl" required>
+          </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>이전</button>
+          <button mat-button matStepperNext>다음</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>기타</ng-template>
+      <mat-form-field class="col-12" appearance="standard">
+        <mat-label>메모</mat-label>
+        <input matInput>
+      </mat-form-field>
+      <p>기타</p>
+      <div>
+        <button mat-button matStepperPrevious>이전</button>
+        <button mat-button (click)="stepper.reset()">등록하기</button>
+      </div>
+    </mat-step>
+  </mat-stepper>
+</mat-card>

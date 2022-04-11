@@ -1,1 +1,8 @@
-<p>chips works!</p>
+<mat-chip-list *ngIf="alcohol" aria-label="category">
+  <a routerLink="/search" [queryParams]="{category: alcohol.category[0]}">
+    <mat-chip *ngIf="alcohol.category[0]" color="">{{alcohol.category[0]}}</mat-chip>
+  </a>
+  <a routerLink="/search" [queryParams]="{detailedCategory: alcohol.category[1]}">
+    <mat-chip *ngIf="alcohol.category[1]" color="">{{alcohol.category[1]}}</mat-chip>
+  </a>
+</mat-chip-list>
