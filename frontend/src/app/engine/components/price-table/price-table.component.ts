@@ -17,7 +17,6 @@ export class PriceTableComponent implements OnInit {
   constructor() {
   }
   ngOnInit(): void {
-    console.log(this.priceSource.data)
     this.priceSource.data = this.price;
   }
 }

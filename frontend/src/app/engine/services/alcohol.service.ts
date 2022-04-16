@@ -18,18 +18,18 @@ export class AlcoholService {
   }
 
   async getAlcoholData(): Promise<Alcohol[]> {
-    return await this.apiService.getAsync<Alcohol[]>('/api/AlcList.json');
+    return this.apiService.getAsync<Alcohol[]>('/api/AlcList.json');
   }
 
   async getAlcohol(): Promise<string[]> {
-    return await this.apiService.getAsync<string[]>('api/AlcName.json');
+    return this.apiService.getAsync<string[]>('api/AlcName.json');
   }
 
   async getCategories(): Promise<string[]> {
-    return await this.apiService.getAsync<string[]>('/api/categories.json');
+    return this.apiService.getAsync<string[]>('/api/categories.json');
   }
 
   async getDetailedCategories(): Promise<string[]> {
-    return await this.apiService.getAsync<string[]>('/api/detailed_categories.json');
+    return this.apiService.getAsync<string[]>('/api/detailed_categories.json');
   }
 }
