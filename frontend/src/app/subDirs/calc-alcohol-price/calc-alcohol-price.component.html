@@ -1,0 +1,44 @@
+<mat-form-field class="w-100" appearance="standard">
+  <mat-label>주류</mat-label>
+  <input type="text"
+         placeholder="추가할 주류"
+         matInput
+         [formControl]="calculateControl"
+         [matAutocomplete]="auto">
+  <mat-autocomplete  #auto="matAutocomplete" (optionSelected)="print($event)">
+    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+      {{option.name}}
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>
+<mat-card>
+  <mat-card-title>가격표</mat-card-title>
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let alcohol of alcoholData">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{alcohol.name}} &nbsp;
+        </mat-panel-title>
+        <mat-panel-description *ngIf="this.innerWidth > 768">
+          {{alcohol.storePrices[0].price}} 원
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div class="row">
+        <mat-form-field class="col-md-6 col-sm-12" appearance="outline">
+          <mat-label>구매 수량</mat-label>
+          <input matInput type="number" maxlength="1" autocomplete="off">
+        </mat-form-field>
+        <mat-form-field class="col-md-6 col-sm-12" appearance="outline">
+          <mat-label>용량</mat-label>
+          <input matInput type="number" maxlength="1">
+        </mat-form-field>
+        <app-chips class="col-12" [alcohol]="alcohol"></app-chips>
+
+      </div>
+      <app-price-table [price]="alcohol.storePrices"></app-price-table>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <button mat-button (click)="calculate()">button</button>
+</mat-card>
+
+
