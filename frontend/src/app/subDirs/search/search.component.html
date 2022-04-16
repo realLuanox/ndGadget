@@ -5,12 +5,14 @@
     </app-alcohol-small>
   </mat-tab>
   <mat-tab label="카테고리로 검색">
-    <app-alcohol-small *ngFor="let alcohol of alcohols" [alcohol]="alcohol">
+    <app-searchbar (searched)="searchCategory($event)"> </app-searchbar>
+    <a routerLink="/alcohol/{{single.uuid}}" *ngFor="let single of alcohols">
+    <app-alcohol-small [alcohol]="single">
     </app-alcohol-small>
+    </a>
   </mat-tab>
 
-  <mat-tab label=" 검색"> Content 3</mat-tab>
-
+  <mat-tab label="상점 이름으로 검색"></mat-tab>
   <div class="row">
     <div class="col-12">
     </div>

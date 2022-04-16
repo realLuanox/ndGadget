@@ -8,7 +8,7 @@ import {AlcoholService} from "../../engine/services/alcohol.service";
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css']
+  styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
   alcohols: Alcohol[] = [];
@@ -24,9 +24,11 @@ export class SearchComponent implements OnInit {
       if (v['category']) {
         this.tabIndex = 1;
         this.searchCategory(v['category']);
+        console.log(this.alcohols);
       }
-      else if (v['alcoholType']) {
+      else if (v['detailedCategory']) {
         this.tabIndex = 1;
+        this.searchDetailedCategory(v['detailedCategory'])
       }
     });
   }
