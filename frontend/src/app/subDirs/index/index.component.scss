@@ -1,0 +1,16 @@
+:host {
+  max-width: 800px;
+  width: 100%;
+  margin: 80px auto;
+}
+
+.mix-wrapper {
+  position: fixed;
+  bottom: 1em;
+  right: 1em;
+  float: right;
+  z-index: 150;
+}
+.box {
+  min-height: 100%;
+}
