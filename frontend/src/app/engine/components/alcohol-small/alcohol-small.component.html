@@ -1,12 +1,13 @@
-<mat-card *ngIf="alcohol" >
+<mat-card *ngIf="alcohol" class="mt-4">
   <mat-card-header style="margin-left: -16px;">
     <mat-card-title [innerText]="alcohol.name"></mat-card-title>
     <mat-card-subtitle [innerText]="alcohol.englishName"></mat-card-subtitle>
+    <app-chips [alcohol]="alcohol"></app-chips>
   </mat-card-header>
   <mat-card-content>
     <div class="row">
       <div class="col-12 col-md-6 mt-auto mb-auto">
-        <img mat-card-image class="img-fluid" [src]="alcohol.image" [alt]="alcohol.name">
+        <img mat-card-image class="img-fluid" [src]="alcohol.imageUrl" [alt]="alcohol.name">
       </div>
       <div class="col-12 col-md-6 mt-auto mb-auto">
         <app-price-table [price]="alcohol.storePrices"></app-price-table>
