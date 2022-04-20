@@ -82,6 +82,7 @@ export class AddAlcoholComponent implements OnInit {
         this.categories = value;
       })
     }
+    // this.descriptionControl.valueChanges.subscribe()
 
     this.nameFilter = this.nameControl.valueChanges.pipe(startWith(''), map(value => this._filter_name(value)));
     this.categoryFilter = this.categoryControl.valueChanges.pipe(startWith(''), map(value => this._filter_category(value)));
@@ -140,6 +141,7 @@ export class AddAlcoholComponent implements OnInit {
   }
 
   submit(): void {
+    // this.output 이 alcoholStructure 필드와 같은 경우 동작하지 않는 익명 함수를 작성할 수 있을까?
     this.output.name = this.nameControl.value.trim();
     this.output.englishName = this.englishNameControl.value.trim();
     this.output.degree = this.degreeControl.value;
