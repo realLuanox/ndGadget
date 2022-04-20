@@ -4,7 +4,7 @@ export interface Alcohol {
   amount: number;
   englishName: string;
   name: string;
-  image: string;
+  imageUrl: string;
   description?: string;
   age?: 'N/A' | number;
   storePrices: StorePrice[];
@@ -26,7 +26,7 @@ export const AlcoholStructure = {
   amount: 700,
   englishName: '',
   name: '',
-  image: '',
+  imageUrl: '',
   description: '',
   age: 'N/A',
   storePrices: [],
