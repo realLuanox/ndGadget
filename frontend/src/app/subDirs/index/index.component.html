@@ -1,5 +1,5 @@
 <div class="container box">
-  <a routerLink="/alcohol/{{single.uuid}}" *ngFor="let single of alcoholData">
+  <a routerLink="/alcohol/{{single.uuid}}" *ngFor="let single of alcoholData" [state]="single">
     <app-alcohol-small [alcohol]="single">
     </app-alcohol-small>
   </a>
@@ -10,3 +10,5 @@
     <app-floating-button type="add"></app-floating-button>
   </a>
 </div>
+
+
