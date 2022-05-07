@@ -3,6 +3,7 @@ import {ApiService} from "../../services/api.service";
 import {FormControl} from "@angular/forms";
 import {map, Observable, startWith} from "rxjs";
 import {Alcohol} from "../../interfaces/alcohol";
+import {AlcoholService} from "../../services/alcohol.service";
 
 @Component({
   selector: 'app-searchbar',
@@ -17,10 +18,15 @@ export class SearchbarComponent implements OnInit {
   filteredOptions: Observable<Alcohol[]>;
 
 
-  constructor(private readonly apiService: ApiService) {
-    this.apiService.get<Alcohol[]>("/api/AlcList.json").subscribe(value => {
-      this.searchList = value;
-    });
+  constructor(private readonly apiService: ApiService,
+              private readonly alcoholService: AlcoholService) {
+    if (this.alcoholService.alcoholData) {
+      this.searchList = this.alcoholService.alcoholData;
+    } else {
+      this.alcoholService.getAlcoholData().then(value => {
+        this.searchList = value;
+      })
+    }
     this.filteredOptions = this.myControl.valueChanges.pipe(
       startWith(''),
       map(value => this._filter(value)),
@@ -38,6 +44,7 @@ export class SearchbarComponent implements OnInit {
   }
 
   search(value: string): void {
+    console.log(this.searched);
     this.searched.emit(value);
   }
 }
