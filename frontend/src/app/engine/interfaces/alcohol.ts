@@ -26,9 +26,18 @@ export const AlcoholStructure = {
   amount: 700,
   englishName: '',
   name: '',
-  imageUrl: '',
+  imageUrl: 'https://cdn-icons-png.flaticon.com/512/920/920582.png',
   description: '',
   age: 'N/A',
   storePrices: [],
   category: []
 }as Alcohol;
+
+export const StorePriceStructure = {
+  buyDate: '',
+  amount: 0,
+  storeName: '',
+  price: 0,
+  priceType: '',
+  etc: '',
+}
