@@ -22,6 +22,10 @@ const routes: Routes = [
     component: AddAlcoholComponent
   },
   {
+    path: 'edit/alcohol/:uid',
+    component: AddAlcoholComponent
+  },
+  {
     path: 'add/price',
     component: AddAlcoholPriceComponent
   },
