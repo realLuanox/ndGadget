@@ -19,14 +19,5 @@ export class IndexComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.alcoholService.alcoholData);
-    this.apiService.get<string>('/api/hello').subscribe(value => {
-      console.log(value);
-    });
-
-    this.apiService.post<void>('/api/postTest', {
-      hello: 'World!',
-      lfasdfk: 'qewrqrewr'
-    }).subscribe(value => {});
   }
 }
