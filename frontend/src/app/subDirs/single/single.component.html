@@ -1,1 +1,11 @@
 <app-alcohol-small [alcohol]="alcohol"></app-alcohol-small>
+<div class="mix-wrapper">
+  <a routerLink="/add/price" [state]="this.alcohol">
+    <app-floating-button type="add" ></app-floating-button>
+  </a>
+</div>
+<div class="mix-wrapper-2nd">
+  <a routerLink="/edit/alcohol/{{uid}}" [state]="this.alcohol">
+    <app-floating-button type="edit"></app-floating-button>
+  </a>
+</div>

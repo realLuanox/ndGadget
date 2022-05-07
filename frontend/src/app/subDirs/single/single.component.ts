@@ -18,7 +18,7 @@ export class SingleComponent implements OnInit {
       this.alcohol = history.state as Alcohol;
       document.title = this.alcohol.name;
     } else {
-      this.apiService.getAsync<Alcohol>(`/api/alcohol/{$this.uid}`).then(value => {
+      this.apiService.getAsync<Alcohol>(`/api/alcohol/${this.uid}`).then(value => {
         this.alcohol = value;
         document.title = this.alcohol.name;
       });
@@ -27,5 +27,7 @@ export class SingleComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+
 
 }
