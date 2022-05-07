@@ -35,6 +35,7 @@ import {MatSelectModule} from "@angular/material/select";
 import {MatChipsModule} from "@angular/material/chips";
 import { SingleComponent } from './subDirs/single/single.component';
 import {MatExpansionModule} from "@angular/material/expansion";
+import { SearchbarCategoryComponent } from './engine/components/searchbar-category/searchbar-category.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import {MatExpansionModule} from "@angular/material/expansion";
     AddAlcoholPriceComponent,
     CalcAlcoholPriceComponent,
     FloatingButtonComponent,
-    SingleComponent
+    SingleComponent,
+    SearchbarCategoryComponent
   ],
   imports: [
     HttpClientModule,
