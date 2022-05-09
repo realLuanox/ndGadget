@@ -19,5 +19,4 @@ export class FloatingButtonComponent implements OnInit {
     const event = new CustomEvent('floater-click');
     document.dispatchEvent(event);
   }
-
 }

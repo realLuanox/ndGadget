@@ -6,10 +6,10 @@
   </mat-card-header>
   <mat-card-content>
     <div class="row">
-      <div class="col-12 col-md-6 mt-auto mb-auto">
-        <img mat-card-image class="img-fluid" [src]="alcohol.imageUrl" [alt]="alcohol.name">
+      <div [ngClass]="isImage ? 'col-12 col-md-6' : 'col-12'" class="mt-auto mb-auto">
+        <img *ngIf="isImage" mat-card-image class="img-fluid" [src]="alcohol.imageUrl" [alt]="alcohol.name">
       </div>
-      <div class="col-12 col-md-6 mt-auto mb-auto">
+      <div [ngClass]="isImage ? 'col-12 col-md-6' : 'col-12'" class="mt-auto mb-auto">
         <app-price-table [price]="alcohol.storePrices"></app-price-table>
       </div>
     </div>

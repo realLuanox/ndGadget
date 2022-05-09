@@ -10,6 +10,7 @@ import {Alcohol} from "../../engine/interfaces/alcohol";
 })
 export class IndexComponent implements OnInit {
   alcoholData : Alcohol[] = [];
+  isImage : boolean = true;
 
   constructor(private apiService: ApiService,
               private alcoholService: AlcoholService) {
@@ -19,5 +20,9 @@ export class IndexComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  toggleImage() {
+    this.isImage ? this.isImage = false : this.isImage = true;
   }
 }

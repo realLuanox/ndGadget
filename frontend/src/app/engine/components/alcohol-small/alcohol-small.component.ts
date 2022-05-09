@@ -8,6 +8,7 @@ import {Alcohol} from "../../interfaces/alcohol";
 })
 export class AlcoholSmallComponent implements OnInit {
   @Input() alcohol: Alcohol | null = null;
+  @Input() isImage = true as boolean;
   isMobile : boolean = window.innerWidth > 768;
 
   constructor() {
