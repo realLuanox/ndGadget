@@ -36,6 +36,12 @@ import {MatChipsModule} from "@angular/material/chips";
 import { SingleComponent } from './subDirs/single/single.component';
 import {MatExpansionModule} from "@angular/material/expansion";
 import { SearchbarCategoryComponent } from './engine/components/searchbar-category/searchbar-category.component';
+import { UniqueCategoryPipe } from './engine/pipes/unique-category.pipe';
+import { MatSnackBarModule } from "@angular/material/snack-bar";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatNativeDateModule} from "@angular/material/core";
+import { DatePipe } from './engine/pipes/date.pipe';
+
 
 @NgModule({
   declarations: [
@@ -53,7 +59,9 @@ import { SearchbarCategoryComponent } from './engine/components/searchbar-catego
     CalcAlcoholPriceComponent,
     FloatingButtonComponent,
     SingleComponent,
-    SearchbarCategoryComponent
+    SearchbarCategoryComponent,
+    UniqueCategoryPipe,
+    DatePipe
   ],
   imports: [
     HttpClientModule,
@@ -62,6 +70,9 @@ import { SearchbarCategoryComponent } from './engine/components/searchbar-catego
     MatIconModule,
     MatToolbarModule,
     MatSidenavModule,
+    MatSnackBarModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     MatListModule,
     RouterModule,
     RoutingModule,
@@ -77,7 +88,7 @@ import { SearchbarCategoryComponent } from './engine/components/searchbar-catego
     MatStepperModule,
     MatSelectModule,
     MatChipsModule,
-    MatExpansionModule
+    MatExpansionModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
