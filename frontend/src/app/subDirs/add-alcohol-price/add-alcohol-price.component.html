@@ -1,49 +1,68 @@
 <mat-card>
-  <mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
+  <mat-stepper orientation="vertical" linear #stepper>
     <mat-step [stepControl]="firstFormGroup">
       <form class="row" [formGroup]="firstFormGroup">
         <ng-template matStepLabel>이름 정보 입력</ng-template>
-          <app-searchbar class="col-6" (searched)="search($event)"></app-searchbar>
-          <mat-form-field class="col-6" appearance="standard">
-            <mat-label>구매처 이름</mat-label>
-            <input matInput placeholder="구매처 이름" formControlName="firstCtrl" required>
-          </mat-form-field>
-          <app-alcohol-small [alcohol]="alcohol[0]">
-          </app-alcohol-small>
+        <app-searchbar *ngIf="this.output.name === ''" class="col-6" (searched)="search($event)"
+                       [isRequired]="true"></app-searchbar>
+        <mat-form-field [ngClass]="this.output.name === '' ? 'col-6' : 'col-12'" appearance="standard">
+          <mat-label>구매처 이름</mat-label>
+          <mat-select placeholder="구매처 이름" formControlName="storeNameControl">
+            <mat-option *ngFor="let option of storeNameExample" [value]="option">
+              {{option}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="col-12" appearance="standard">
+          <mat-label>구매일자</mat-label>
+          <input matInput formControlName="buyDateControl" [matDatepicker]="picker">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <app-alcohol-small [alcohol]="alcohol[0]" [isImage]="false">
+        </app-alcohol-small>
         <div>
-          <button mat-button matStepperNext>다음</button>
+          <button (click)="onUpdateFirstGroup()" mat-button matStepperNext>다음</button>
         </div>
       </form>
     </mat-step>
     <mat-step [stepControl]="secondFormGroup">
       <form class="row" [formGroup]="secondFormGroup">
         <ng-template matStepLabel>가격 정보 입력</ng-template>
-          <mat-form-field class="col-6" appearance="standard">
-            <mat-label>가격</mat-label>
-            <input matInput formControlName="secondCtrl" placeholder="ex) 65000"
-                   required>
-          </mat-form-field>
-          <mat-form-field class="col-6" appearance="standard">
-            <mat-label>용량</mat-label>
-            <input matInput placeholder="ex) 700ml" formControlName="firstCtrl" required>
-          </mat-form-field>
+        <mat-form-field class="col-6" appearance="standard">
+          <mat-label>가격</mat-label>
+          <input matInput type="number" formControlName="priceControl" placeholder="ex) 65000" required>
+        </mat-form-field>
+        <mat-form-field class="col-6" appearance="standard">
+          <mat-label>용량</mat-label>
+          <input matInput type="number" placeholder="ex) 700ml" formControlName="amountControl" required>
+        </mat-form-field>
+        <mat-form-field class="col-12" appearance="standard">
+          <mat-label>결제방식</mat-label>
+          <input matInput placeholder="ex) 현금, 카드" formControlName="buyMethodControl" required>
+        </mat-form-field>
         <div>
           <button mat-button matStepperPrevious>이전</button>
-          <button mat-button matStepperNext>다음</button>
+          <button (click)="onUpdateSecondGroup()" mat-button matStepperNext>다음</button>
         </div>
       </form>
     </mat-step>
-    <mat-step>
-      <ng-template matStepLabel>기타</ng-template>
-      <mat-form-field class="col-12" appearance="standard">
-        <mat-label>메모</mat-label>
-        <input matInput>
-      </mat-form-field>
-      <p>기타</p>
+    <mat-step [stepControl]="thirdFormGroup">
+      <form class="row" [formGroup]="thirdFormGroup">
+        <ng-template matStepLabel>기타</ng-template>
+        <mat-form-field class="col-12" appearance="standard">
+          <mat-label>메모</mat-label>
+          <input matInput formControlName="etcControl">
+        </mat-form-field>
+        <p>기타</p>
+      </form>
       <div>
         <button mat-button matStepperPrevious>이전</button>
-        <button mat-button (click)="stepper.reset()">등록하기</button>
+        <button mat-button (click)="sortByDate()">등록하기</button>
+        <button mat-button (click)="submit()">reset</button>
       </div>
     </mat-step>
   </mat-stepper>
+  <app-alcohol-small [alcohol]="this.output"></app-alcohol-small>
 </mat-card>
