@@ -5,7 +5,8 @@
          aria-label="주류명"
          matInput
          [formControl]="myControl"
-         [matAutocomplete]="auto">
+         [matAutocomplete]="auto"
+         [required]="this.isRequired">
   <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="search($event.option.value)">
     <mat-option *ngFor="let option of filteredOptions | async" [value]="option.englishName">
       {{option.name}}

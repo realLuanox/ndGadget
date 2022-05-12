@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ApiService} from "../../services/api.service";
 import {FormControl} from "@angular/forms";
 import {map, Observable, startWith} from "rxjs";
@@ -11,26 +11,31 @@ import {AlcoholService} from "../../services/alcohol.service";
   styleUrls: ['./searchbar.component.scss']
 })
 export class SearchbarComponent implements OnInit {
+  @Input() isRequired = false as boolean;
   @Output() searched = new EventEmitter<string>();
   public searchList: Alcohol[] = [];
 
   myControl = new FormControl();
-  filteredOptions: Observable<Alcohol[]>;
+  filteredOptions: Observable<Alcohol[]> = new Observable<Alcohol[]>();
 
 
   constructor(private readonly apiService: ApiService,
               private readonly alcoholService: AlcoholService) {
     if (this.alcoholService.alcoholData) {
       this.searchList = this.alcoholService.alcoholData;
+      this.filteredOptions = this.myControl.valueChanges.pipe(
+        startWith(''),
+        map(value => this._filter(value)),
+      );
     } else {
       this.alcoholService.getAlcoholData().then(value => {
         this.searchList = value;
+        this.filteredOptions = this.myControl.valueChanges.pipe(
+          startWith(''),
+          map(value => this._filter(value)),
+        );
       })
     }
-    this.filteredOptions = this.myControl.valueChanges.pipe(
-      startWith(''),
-      map(value => this._filter(value)),
-    );
   }
 
   ngOnInit(): void {
