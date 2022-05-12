@@ -13,26 +13,45 @@ import {AlcoholService} from "../../services/alcohol.service";
 export class SearchbarCategoryComponent implements OnInit {
   @Output() searched = new EventEmitter<string>();
   public searchList: Alcohol[] = [];
-  public filteredArray: Alcohol[] = [];
+  public filteredArray: string[] = [];
   distinctCategory: String[] = [];
   categoryTree: {
     category: string;
     detailedCategory: string[];
   }[] = [];
-
+  cat0: string[] = [];
+  cat1: string[] = [];
+  catMerged: [string, string][] = [];
   myControl = new FormControl();
-  filteredOptions: Observable<Alcohol[]>;
-  filteredCategory: Observable<Alcohol[]>;
+  filteredOptions: Observable<string[]> = new Observable();
+  filteredCategory: Observable<string[]> = new Observable();
 
 
   constructor(private readonly apiService: ApiService,
               private readonly alcoholService: AlcoholService) {
-    if (this.alcoholService.alcoholData) {
+    if (this.alcoholService.alcoholData && this.alcoholService.initialized) {
       this.searchList = this.alcoholService.alcoholData;
+      this.setCategories();
     } else {
       this.alcoholService.getAlcoholData().then(value => {
         this.searchList = value;
+        this.setCategories();
       })
+    }
+  }
+
+  setCategories() {
+    this.cat0 = [];
+    this.cat1 = [];
+    this.catMerged = [];
+    for (const single of this.searchList) {
+      if (!this.cat0.includes(single.category[1])) {
+        this.cat0.push(single.category[1]);
+      }
+      if (!this.cat1.includes(single.category[0])) {
+        this.cat1.push(single.category[0]);
+      }
+      this.catMerged.push([single.category[1], single.category[0]]);
     }
     this.filteredOptions = this.myControl.valueChanges.pipe(
       startWith(''),
@@ -47,23 +66,28 @@ export class SearchbarCategoryComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  private _filter(value: string): Alcohol[] {
+  private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
-    return this.searchList.filter((value) => {
-      return value.category[0].includes(filterValue) || value.category[1].includes(filterValue);
-    });
+    const cat = this.catMerged.filter(v => v[1].includes(filterValue) || v[0].includes(filterValue)).map(v => v[0]);
+    const output: string[] = [];
+    for (const single of cat) {
+      if (!output.includes(single)) {
+        output.push(single);
+      }
+    }
+    return output;
   }
 
-  private _filter_category(value: string): Alcohol[] {
+  private _filter_category(value: string): string[] {
     const filterValue = value.toLowerCase();
-    this.filteredArray = [];
-    this.searchList.forEach((alcohol, index, filterValue) => {
-      if (filterValue.map(alcohol => alcohol.category[0]).indexOf(alcohol.category[0]) === index)
-        this.filteredArray.push(alcohol);
-    })
-    return this.filteredArray.filter((v: Alcohol) => {
-        return v.category[0].includes(filterValue) || v.category[1].includes(filterValue);
-    });
+    const cat = this.catMerged.filter(v => v[0].includes(filterValue) || v[1].includes(filterValue)).map(v => v[1]);
+    const output: string[] = [];
+    for (const single of cat) {
+      if (!output.includes(single)) {
+        output.push(single);
+      }
+    }
+    return output;
   }
 
   search(value: string): void {

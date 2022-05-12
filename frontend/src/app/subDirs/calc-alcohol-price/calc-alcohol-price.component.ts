@@ -1,7 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {Alcohol, StorePrice} from "../../engine/interfaces/alcohol";
+import {Alcohol} from "../../engine/interfaces/alcohol";
 import {AlcoholService} from "../../engine/services/alcohol.service";
-import {map, Observable, startWith} from "rxjs";
+import {map, Observable, of, startWith} from "rxjs";
 import {FormControl} from "@angular/forms";
 import {MatAutocompleteSelectedEvent} from "@angular/material/autocomplete";
 
@@ -21,8 +21,8 @@ export class CalcAlcoholPriceComponent implements OnInit {
   sum: number = 0;
 
   constructor(private alcoholService: AlcoholService) {
-    this.alcoholService.getAlcohol().then(value => {
-      this.alcoholName = value;
+    this.alcoholService.getAlcoholName().then(value => {
+      this.alcoholName = value.map(v => v.korean);
     })
     this.alcoholService.getAlcoholData().then(value => {
       this.alcoholData = value;
@@ -38,21 +38,22 @@ export class CalcAlcoholPriceComponent implements OnInit {
   }
 
   searchName(keyword: string): void {
-    this.alcoholService.getAlcohol().then(value => {
-      this.alcoholName = value;
+    this.alcoholService.getAlcoholName().then(value => {
+      this.alcoholName = value.map(v => v.korean);
     })
   }
 
   private _filter(englishName: string): Alcohol[] {
     const filterValue = englishName.toLowerCase();
-    return this.alcoholData.filter(alcohol => alcohol.englishName.toLowerCase().includes(filterValue)
-    || alcohol.name.includes(filterValue));
+    return this.alcoholData.filter(alcohol => alcohol.englishName.toLowerCase().includes(filterValue) || alcohol.name.includes(filterValue));
   }
 
   getAddedAlcohol(event: Event): void {
     console.log(Event);
+    this.alcoholData = this.alcoholService.alcoholData;
   }
 
+  // 이거 reduce로 좀더 간단하게 짤 수는 없나
   calculate(): void {
     this.sum = 0;
     console.log(this.selectedAlcoholData);
@@ -65,6 +66,9 @@ export class CalcAlcoholPriceComponent implements OnInit {
   print(selected: MatAutocompleteSelectedEvent) {
     const alc = selected.option.value as Alcohol;
     this.calculateControl.setValue(alc.englishName);
+    if(!this.selectedAlcoholData.includes(alc))
+      this.selectedAlcoholData.push(alc);
+    this.alcoholData = this.alcoholService.alcoholData;
+    console.log(this.alcoholData);
   }
-
 }

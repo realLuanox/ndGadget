@@ -8,13 +8,13 @@
          [matAutocomplete]="auto">
   <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="search($event.option.value)">
     <mat-optgroup label="분류">
-      <mat-option *ngFor="let option of filteredCategory | async" [value]="option.category[0]">
-        {{option.category[0]}}
+      <mat-option *ngFor="let option of filteredCategory | async" [value]="option">
+        {{option}}
       </mat-option>
     </mat-optgroup>
     <mat-optgroup label="상세 분류">
-      <mat-option *ngFor="let option of filteredOptions | async" [value]="option.category[1]">
-        {{option.category[1]}}
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+        {{option}}
       </mat-option>
     </mat-optgroup>
   </mat-autocomplete>

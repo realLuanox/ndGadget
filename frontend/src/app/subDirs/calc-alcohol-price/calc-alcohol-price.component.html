@@ -12,9 +12,8 @@
   </mat-autocomplete>
 </mat-form-field>
 <mat-card>
-  <mat-card-title>가격표</mat-card-title>
   <mat-accordion>
-    <mat-expansion-panel *ngFor="let alcohol of alcoholData">
+    <mat-expansion-panel *ngFor="let alcohol of selectedAlcoholData">
       <mat-expansion-panel-header>
         <mat-panel-title>
           {{alcohol.name}} &nbsp;
@@ -33,12 +32,12 @@
           <input matInput type="number" maxlength="1">
         </mat-form-field>
         <app-chips class="col-12" [alcohol]="alcohol"></app-chips>
-
       </div>
       <app-price-table [price]="alcohol.storePrices"></app-price-table>
     </mat-expansion-panel>
   </mat-accordion>
-  <button mat-button (click)="calculate()">button</button>
+  <h1 align="right">예상 가격: {{ this.sum }} ~ {{ (this.sum * 1.1).toFixed() }} 원</h1>
+  <button mat-button (click)="calculate()">계산하기</button>
 </mat-card>
 
 

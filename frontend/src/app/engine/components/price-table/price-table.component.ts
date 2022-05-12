@@ -16,7 +16,27 @@ export class PriceTableComponent implements OnInit {
 
   constructor() {
   }
+
   ngOnInit(): void {
     this.priceSource.data = this.price;
   }
+
+  formatDate(of: string): string {
+    const timestamp = Date.parse(of);
+    const date = new Date(timestamp);
+    return `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
+  }
+
+  formatDateString(of: string): string
+  {
+    const timestamp = Date.parse(of);
+    const date = new Date(timestamp);
+    return isNaN(date.getDate()) ? "" : this.dateToString(date);
+  }
+
+  dateToString(date: Date): string
+  {
+    return `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
+  }
+
 }
