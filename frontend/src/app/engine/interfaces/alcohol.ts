@@ -12,7 +12,7 @@ export interface Alcohol {
 }
 
 export interface StorePrice {
-  buyDate: string;
+  buyDate: Date|string;
   amount: number;
   storeName: string;
   price: number;
@@ -34,7 +34,7 @@ export const AlcoholStructure = {
 }as Alcohol;
 
 export const StorePriceStructure = {
-  buyDate: '',
+  buyDate: new Date(),
   amount: 0,
   storeName: '',
   price: 0,
