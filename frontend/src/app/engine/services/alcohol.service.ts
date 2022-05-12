@@ -11,10 +11,12 @@ export class AlcoholService {
   alcoholEnglishName = [] as string[];
   categories = [] as string[];
   detailedCategories = [] as string[];
+  initialized = false;
 
   constructor(private apiService: ApiService) {
     this.apiService.get<Alcohol[]>(`/api/alcohol`).subscribe(value => {
       this.alcoholData = value;
+      this.initialized = true;
     });
     this.getAlcoholName().then(value => {
       this.alcoholName = value.map(v => v.korean);
