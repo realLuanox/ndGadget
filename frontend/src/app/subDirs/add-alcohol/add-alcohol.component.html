@@ -1,12 +1,12 @@
 <mat-card class="mt-4">
-  <mat-stepper class="col-12" orientation="vertical" [linear]="isLinear" #stepper>
+  <mat-stepper class="col-12" orientation="vertical" linear #stepper>
     <mat-step [stepControl]="firstFormGroup" label="db에 존재하지 않는 주류 추가">
       <form class="row" [formGroup]="firstFormGroup">
         <ng-template matStepLabel>이름 정보 입력</ng-template>
         <mat-form-field class="col-6" appearance="standard">
           <mat-label>이름</mat-label>
-          <input matInput [formControl]="nameControl" [matAutocomplete]="alcoholName" placeholder="ex) 글랜피딕 12년">
-          <mat-autocomplete autoActiveFirstOption #alcoholName="matAutocomplete">
+          <input matInput formControlName="nameControl" [matAutocomplete]="alcoholName" placeholder="ex) 글랜피딕 12년">
+          <mat-autocomplete autoActiveFirstOption #alcoholName="matAutocomplete" (optionSelected)="selectKoreanName($event.option.value)">
             <mat-option *ngFor="let option of nameFilter | async" [value]="option">
               {{option}}
             </mat-option>
@@ -14,7 +14,12 @@
         </mat-form-field>
         <mat-form-field class="col-6" appearance="standard">
           <mat-label>영문 이름</mat-label>
-          <input matInput [formControl]="englishNameControl" placeholder="ex) Glenfiddich 12y">
+          <input matInput formControlName="englishNameControl" [matAutocomplete]="alcoholEnglishName" placeholder="ex) Glenfiddich 12y">
+          <mat-autocomplete autoActiveFirstOption #alcoholEnglishName="matAutocomplete" (optionSelected)="selectEnglishName($event.option.value)">
+            <mat-option *ngFor="let option of englishNameFilter | async" [value]="option">
+              {{option}}
+            </mat-option>
+          </mat-autocomplete>
         </mat-form-field>
         <div>
           <button color="primary" (click)="onUpdateFirstGroup($event)" mat-button matStepperNext>다음</button>
@@ -24,25 +29,25 @@
     <mat-step [stepControl]="secondFormGroup">
       <form class="row" [formGroup]="secondFormGroup">
         <ng-template matStepLabel>추가 정보 입력</ng-template>
-        <mat-form-field [ngClass]="categoryControl.value =='위스키' ? 'col-9' : 'col-12'" appearance="standard">
+        <mat-form-field [ngClass]=" secondFormGroup.get('categoryControl')!.value =='위스키' ? 'col-9' : 'col-12'" appearance="standard">
           <mat-label>카테고리</mat-label>
-          <mat-select [formControl]="categoryControl" required>
+          <mat-select formControlName="categoryControl" required>
             <mat-option *ngFor="let option of alcoholCategory" [value]="option">
               {{option}}
             </mat-option>
           </mat-select>
         </mat-form-field>
-        <mat-form-field *ngIf="categoryControl.value == '위스키'" class="col-3" appearance="standard">
+        <mat-form-field *ngIf=" secondFormGroup.get('categoryControl')!.value == '위스키'" class="col-3" appearance="standard">
           <mat-label>숙성 기간</mat-label>
-          <input matInput type="number" [formControl]="ageControl">
+          <input matInput type="number" formControlName="ageControl" required>
         </mat-form-field>
         <mat-form-field class="col-6" appearance="standard">
           <mat-label>카테고리 2</mat-label>
-          <input matInput [formControl]="detailedCategoryControl">
+          <input matInput formControlName="detailedCategoryControl">
         </mat-form-field>
         <mat-form-field class="col-6" appearance="standard">
           <mat-label>도수</mat-label>
-          <input matInput type="number" [formControl]="degreeControl" placeholder="40" required>
+          <input matInput type="number" formControlName="degreeControl" placeholder="40" required>
         </mat-form-field>
         <div>
           <button mat-button matStepperPrevious>이전</button>
@@ -50,16 +55,16 @@
         </div>
       </form>
     </mat-step>
-    <mat-step>
-      <form class="row">
+    <mat-step [stepControl]="thirdFormGroup">
+      <form class="row" [formGroup]="thirdFormGroup">
         <ng-template matStepLabel>기타</ng-template>
         <mat-form-field class="col-12" appearance="standard">
           <mat-label>사진</mat-label>
-          <input matInput [formControl]="imageUrlControl" [(ngModel)]="this.output.imageUrl">
+          <input matInput formControlName="imageUrlControl">
         </mat-form-field>
         <mat-form-field class="col-12" appearance="standard">
           <mat-label>설명</mat-label>
-          <textarea matInput [formControl]="descriptionControl" [(ngModel)]="this.output.description"></textarea>
+          <textarea matInput formControlName="descriptionControl"></textarea>
         </mat-form-field>
         <p>기타</p>
         <div>
